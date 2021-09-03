@@ -781,3 +781,6 @@ $databases['default']['default'] = array (
   'driver' => 'mysql',
 );
 $settings['config_sync_directory'] = 'sites/default/files/config_ziS9cayXmOAsvGoCcccXYKiQBPbRRtNTYOF4SUcnrzeVvXInyJQhawcJGVS5Yloyk3uzU3-PBg/sync';
+
+# This helps to detect error in localhost whats's wroung.
+$config['system.logging']['error_level'] = 'verbose';
