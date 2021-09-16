@@ -1,4 +1,4 @@
-# DRUPAL_DEMO
+# DRUPAL-DEMO
 
 ## Description
 
