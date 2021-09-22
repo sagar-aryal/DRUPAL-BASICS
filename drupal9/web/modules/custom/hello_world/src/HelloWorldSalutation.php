@@ -83,6 +83,9 @@ class HelloWorldSalutation {
           ],
         ],
       ],
+      '#cache' => [
+        'max-age' => 0,
+      ],
     ];
 
     $config = $this->configFactory->get('hello_world.custom_salutation');
@@ -99,6 +102,11 @@ class HelloWorldSalutation {
 
     $time = new \DateTime();
     $render['#target'] = $this->t('world');
+    $render['#attached'] = [
+      'library' => [
+        'hello_world/hello_world_clock',
+      ],
+    ];
 
     if ((int) $time->format('G') >= 00 && (int) $time->format('G') < 12) {
       $render['#salutation']['#markup'] = $this->t('Good morning');
@@ -107,6 +115,7 @@ class HelloWorldSalutation {
 
     if ((int) $time->format('G') >= 12 && (int) $time->format('G') < 18) {
       $render['#salutation']['#markup'] = $this->t('Good afternoon');
+      $render['#attached']['drupalSettings']['hello_world']['hello_world_clock']['afternoon'] = TRUE;
       return $render;
     }
 
